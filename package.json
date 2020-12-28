@@ -1,0 +1,87 @@
+{
+  "name": "vue-cli-template",
+  "version": "1.0.1-0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint --fix",
+    "build:analyzer": "vue-cli-service build --report",
+    "lint:css": "stylelint --cache src/**/*.{html,vue,css,sass,scss,less,stylus} --fix",
+    "precommit": "lint-staged",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "qs": "^6.9.4",
+    "view-design": "^4.3.2",
+    "vue": "^2.6.11",
+    "vue-i18n": "^8.20.0",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0",
+    "vuex-persistedstate": "^3.1.0",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-router": "~4.4.0",
+    "@vue/cli-plugin-unit-mocha": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.8.0",
+    "chai": "^4.1.2",
+    "commitizen": "^4.1.2",
+    "compression-webpack-plugin": "^4.0.0",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.0.0-beta.15",
+    "prettier": "^1.19.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "speed-measure-webpack-plugin": "^1.3.3",
+    "standard-version": "^8.0.2",
+    "stylelint": "^13.6.1",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
+    "stylelint-webpack-plugin": "^2.1.0",
+    "vue-cli-plugin-viewui": "~2.0.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "gitHooks": {
+    "commit-msg": "commitlint -e $GIT_PARAMS",
+    "pre-commit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "npm run lint",
+      "git add ."
+    ],
+    "src/**/*.{html,vue,css,sass,scss,less,stylus}": [
+      "npm run lint:css",
+      "git add ."
+    ]
+  }
+}

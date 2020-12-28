@@ -1,0 +1,11 @@
+$module_prefix: 'home';
+
+.#{$module_prefix} {
+  display: flex;
+  flex-direction: column;
+
+  .ivu-btn {
+    max-width: 300px;
+    margin: 10px auto;
+  }
+}
